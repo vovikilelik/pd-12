@@ -56,3 +56,9 @@ class Candidates(Database):
         records = self.search_records(comparator=comparator, **args)
 
         return [Candidate(record) for record in records]
+
+    def get_list(self):
+        """
+        Возвращает список всех элементов
+        """
+        return [Candidate(record) for record in self.data]

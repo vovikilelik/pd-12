@@ -45,5 +45,10 @@ def skill_view(skill: str):
     return render_template('list.html', records=records, represent_text=represent_text)
 
 
+@app.route('/list')
+def list_view():
+    return render_template('list.html', records=candidates.get_list(), represent_text="Все кандидаты")
+
+
 app.run()
 
