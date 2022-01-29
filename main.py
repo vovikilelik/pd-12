@@ -31,7 +31,7 @@ def search_view():
     if len(args) == 0:
         return render_template('404.html', message='Введите хотя бы один поисковый запрос!')
 
-    records = candidates.search_by_text(limit=settings.limit, **args)
+    records = candidates.search_by_text(case_sensitive=settings.case_sensitive, limit=settings.limit, **args)
 
     represent_text = f'Найдено по {", ".join(args)}: {len(records)}'
     return render_template('list.html', records=records, represent_text=represent_text)
