@@ -7,7 +7,7 @@ def skill_comparator(record, **args):
     Функция сравнения по полю навыков
     """
     skill = args['skill'].lower()
-    source_skills = [s for s in record['skills'].split(',') if skill == s.strip().lower()]
+    source_skills = [s for s in record['skills'].lower().split(',') if skill == s.strip()]
 
     return len(source_skills) > 0
 
