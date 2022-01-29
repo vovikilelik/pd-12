@@ -17,9 +17,9 @@ def index():
     return 'Приложение работает' if settings.online else 'Приложение не работает'
 
 
-@app.route('/candidate/<ident>')
-@app.route('/<ident>')
-def candidate_view(ident: int):
+@app.route('/candidate/<int:ident>')
+@app.route('/<int:ident>')
+def candidate_view(ident):
     record = candidates.get_by_id(int(ident))
     return render_template('candidate.html', **record.map()) if record is not None else render_template('404.html')
 
